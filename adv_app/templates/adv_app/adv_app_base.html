@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Base</title>
+</head>
+
+<body>
+    <!--Everything inheriting from this base page will have this bootstrap navbar-->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="navbar-item">
+                    <!--the django url tag links to the app's urls.py file, its the midleman between views and models!-->
+                    <a class="navbar-brand" href="{% url 'adv_app:list' %}">Schools</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="{% url 'admin:index' %}">Admin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--Every page on site will have its body contained in a bootstrap container-->
+    <div class="container">
+        {% block body_block %}
+        <!--Anything outside of this will be inherited if you extend! -->
+        {% endblock %}
+    </div>
+</body>
+
+</html>
